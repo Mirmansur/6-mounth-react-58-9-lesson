@@ -40,3 +40,47 @@
   width: 76px;
   margin-bottom: 26px;
 }
+.days {
+  display: flex;
+  margin-top: 10px;
+}
+.days p {
+  font-family: Mulish;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 13.2px;
+  letter-spacing: 0.008em;
+  text-align: left;
+  color: #9a9ab0;
+  padding-right: 10px;
+}
+.days span {
+  font-family: Mulish;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 13.2px;
+  letter-spacing: 0.008em;
+  text-align: left;
+  color: #9a9ab0;
+}
+.backtop {
+  padding-left: -50px;
+}
+.backtop button {
+  position: fixed;
+  scroll-behavior: smooth;
+  bottom: 10px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: #109be9;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: 700;
+}
+.toggle-darck-mode {
+  background-color: black;
+}

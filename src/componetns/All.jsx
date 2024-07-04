@@ -9,6 +9,7 @@ const All = () => {
   const [error, setError] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCardIndex, setSelectedCardIndex] = useState(null);
+  const [darkMode, setDarkMode] = useState(false);
   const cardsRef = useRef([]);
 
   useEffect(() => {
@@ -40,22 +41,42 @@ const All = () => {
   };
 
   const handleCardClick = (index) => {
-    setSelectedCardIndex(index);
-    scrollIntoView(index);
+    if (index === selectedCardIndex) {
+      setSelectedCardIndex(null);
+      scrollIntoView(null);
+    } else {
+      setSelectedCardIndex(index);
+      scrollIntoView(index);
+    }
   };
 
   const scrollIntoView = (index) => {
-    if (cardsRef.current[index]) {
+    if (index !== null && cardsRef.current[index]) {
       cardsRef.current[index].scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
+    } else {
+      document.querySelector(".cards").scrollIntoView({ behavior: "smooth" });
     }
   };
 
+  const scrollToTop = () => {
+    document.querySelector(".cards").scrollIntoView({ behavior: "smooth" });
+  };
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
-    <div className="All">
+    <div className={`All ${darkMode ? "dark-mode" : ""}`}>
       <div className="container">
+        <div className="toggle-dark-mode">
+          <button onClick={toggleDarkMode}>
+            {darkMode ? "Light Mode" : "Dark Mode"}
+          </button>
+        </div>
         <div className="search">
           <input
             type="text"
@@ -79,10 +100,21 @@ const All = () => {
                 onClick={() => handleCardClick(index)}
               >
                 <div className="blue"></div>
-                <p className="white">#ID: {item.id}</p>
-                <h2>{item.body}</h2>
+                <p className={`white ${darkMode ? "dark-text" : ""}`}>
+                  #ID: {item.id}
+                </p>
+                <h2 className={darkMode ? "dark-text" : ""}>{item.body}</h2>
+                <div className="days">
+                  <p className={darkMode ? "dark-text" : ""}>Floyd Miles</p>
+                  <span className={darkMode ? "dark-text" : ""}>
+                    3 Days Ago
+                  </span>
+                </div>
               </div>
             ))}
+        </div>
+        <div className="backtop">
+          <button onClick={scrollToTop}>👆</button>
         </div>
       </div>
     </div>
