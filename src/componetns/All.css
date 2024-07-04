@@ -1,0 +1,42 @@
+.cards {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.card {
+  width: 296px;
+  height: 534px;
+}
+.search {
+  padding: 30px;
+  padding-bottom: 30px;
+}
+.search input {
+  border: 1px solid #109be9;
+  box-shadow: 0px 4px 4px 0px #00000040;
+  padding: 20px;
+  width: 100%;
+  outline: none;
+  font-family: Mulish;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 37.2px;
+  letter-spacing: 0.005em;
+  text-align: left;
+  color: #00000080;
+}
+.blue {
+  width: 296px;
+  height: 312px;
+  background: #109be9;
+}
+.white {
+  background-color: #fff;
+  height: 40px;
+  padding-top: 8px;
+  padding-left: 8px;
+  margin-top: -40px;
+  width: 76px;
+  margin-bottom: 26px;
+}
